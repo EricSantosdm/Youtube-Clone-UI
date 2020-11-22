@@ -1,12 +1,7 @@
-import { Button,ThemeProvider,createMuiTheme, makeStyles } from '@material-ui/core';
+import { ThemeProvider,createMuiTheme } from '@material-ui/core';
 import React from 'react';
 import Home from './Home'
-const useStyles=makeStyles({
-  root:{
-    
 
-  }
-})
 function App() {
   const theme=createMuiTheme({
     palette:{
@@ -18,7 +13,7 @@ function App() {
       },
     },
   });
-  const classes=useStyles();
+
   return (
     <ThemeProvider theme={theme}>
       <Home/>
