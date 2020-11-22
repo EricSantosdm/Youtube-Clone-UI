@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles,AppBar,IconButton,Toolbar,Button,
-Drawer,List,ListItem,ListItemText,Divider, ListItemIcon
+Drawer,List,ListItem,ListItemText,Divider, ListItemIcon,Box,Typography
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -10,6 +10,9 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import HomeIcon from '@material-ui/icons/Home';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
+import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
+import RestoreIcon from '@material-ui/icons/Restore';
+import OndemandVideoIcon from '@material-ui/icons/OndemandVideo';
 const useStyles=makeStyles((theme)=>({
     root:{
        height:'100vh'  
@@ -43,6 +46,13 @@ const useStyles=makeStyles((theme)=>({
     listItemText:{
         fontSize:14,
     },
+    listItem:{
+        paddingTop:4,
+        paddingBottom:4
+    },
+    top:{
+        marginTop:-30
+    }
   }))
 function Home(){
     const classes=useStyles();
@@ -83,28 +93,70 @@ function Home(){
         <div className={classes.drawerContainer}>
           <List>
            
-              <ListItem button>
+              <ListItem button classes={{root:classes.listItem}}>
                   <ListItemIcon><HomeIcon/></ListItemIcon>
-                <ListItemText className={
+                <ListItemText classes={
                     {primary: classes.listItemText}
                 } primary={"Inicio"} />
               </ListItem>
 
-              <ListItem button>
+              <ListItem button classes={{root:classes.listItem}}>
                   <ListItemIcon><WhatshotIcon/></ListItemIcon>
-                <ListItemText className={
+                <ListItemText classes={
                     {primary: classes.listItemText}
                 } primary={"Em alta"} />
               </ListItem>
-              <ListItem button>
+              <ListItem button classes={{root:classes.listItem}}>
                   <ListItemIcon><SubscriptionsIcon/></ListItemIcon>
-                <ListItemText className={
+                <ListItemText classes={
                     {primary: classes.listItemText}
                 } primary={"Inscrições"} />
               </ListItem>
 
           </List>
           <Divider />
+
+        
+          <List>
+           
+           <ListItem button classes={{root:classes.listItem}}>
+               <ListItemIcon><VideoLibraryIcon/></ListItemIcon>
+             <ListItemText classes={
+                 {primary: classes.listItemText}
+             } primary={"Biblioteca"} />
+           </ListItem>
+
+           <ListItem button classes={{root:classes.listItem}}>
+               <ListItemIcon><RestoreIcon/></ListItemIcon>
+             <ListItemText classes={
+                 {primary: classes.listItemText}
+             } primary={"Historico"} />
+           </ListItem>
+           <ListItem button classes={{root:classes.listItem}}>
+               <ListItemIcon><OndemandVideoIcon/></ListItemIcon>
+             <ListItemText classes={
+                 {primary: classes.listItemText}
+             } primary={"Seus videos"} />
+           </ListItem>
+
+       </List>
+    
+       <Divider></Divider>
+       <Box p={5} className={classes.top}>
+               <Typography variant="body2">
+                   Faça login para continuar</Typography>
+                   <Box mt={2}>
+                       <Button
+                       
+                       variant='outlined'
+                       color='secondary'
+                       startIcon={<AccountCircleIcon/>}
+                       >Fazer Login
+
+                       </Button>
+
+                   </Box>
+       </Box>
           
         </div>
       </Drawer>
