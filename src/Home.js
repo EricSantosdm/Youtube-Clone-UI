@@ -153,7 +153,7 @@ return(
 <div className={classes.root}>
     <AppBar color="inherit" className={classes.appBar}>
         <Toolbar>
-            <IconButton onClick={() => setCount(count==0?1:0)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <IconButton onClick={() => setCount(count===0?1:0)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                 <MenuIcon  />
             </IconButton>
             <img src="/images/preto.png" alt="logo" className={classes.logo} />
