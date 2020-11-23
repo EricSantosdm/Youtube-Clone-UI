@@ -1,5 +1,6 @@
-import React from 'react';
-import { makeStyles,AppBar,IconButton,Toolbar,Button,
+import React,{useState} from 'react';
+
+import { makeStyles,AppBar,IconButton,Toolbar,Button,Hidden,
 Drawer,List,ListItem,ListItemText,Divider, ListItemIcon,Box,Typography,Grid
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
@@ -135,14 +136,25 @@ const videos = [
       thumb: '/images/thumb8.png',
     },
   ];
-function Home(){
+  
+  
+  function Home(){
+    
 const classes = useStyles();
+
+
+const [count, setCount] = useState(0);
+
+
+
+
 return(
+   
 <div className={classes.root}>
     <AppBar color="inherit" className={classes.appBar}>
         <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                <MenuIcon />
+            <IconButton onClick={() => setCount(count==0?1:0)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                <MenuIcon  />
             </IconButton>
             <img src="/images/preto.png" alt="logo" className={classes.logo} />
 
@@ -162,6 +174,8 @@ return(
         </Toolbar>
     </AppBar>
 <Box display="flex">
+    
+<Hidden mdDown={count}>
     <Drawer className={classes.drawer} variant="permanent" classes={{
           paper: classes.drawerPaper,
         }}>
@@ -231,7 +245,7 @@ return(
 
         </div>
     </Drawer>
-   
+</Hidden>
    <Toolbar/>
     
     <Box p={7} marginLeft={-12}>
